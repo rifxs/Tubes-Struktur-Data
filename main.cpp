@@ -8,7 +8,6 @@ using namespace std;
 int main() {
     srand(static_cast<unsigned int>(time(0)));
 
-    // 1. SETUP
     Pokemon player;
     setupPokemon(player, "GENGAR", 1000);
     addMove(player, "Shadow Ball", 68, 80, 2.0f);
@@ -27,11 +26,8 @@ int main() {
     cout << "Champion Cynthia sent out " << enemy.name << "!" << endl;
     cout << "Go! " << player.name << "!" << endl;
 
-    // 2. BATTLE LOOP
     while (player.hp > 0 && enemy.hp > 0) {
         printBattleStatus(player, enemy);
-
-        // --- PLAYER TURN ---
         cout << "\nSelect a Move:" << endl;
         MoveNode* temp = player.movesHead;
         for (int i = 1; temp != nullptr; i++) {
@@ -51,13 +47,11 @@ int main() {
             cout << "Dealt " << dmg << " damage!" << endl;
         }
 
-        // Check if Enemy fainted
         if (enemy.hp <= 0) {
             cout << "The foe's " << enemy.name << " fainted!" << endl;
             break;
         }
-
-        // --- ENEMY TURN ---
+        
         int aiChoice = (rand() % 4) + 1;
         MoveNode* aiMove = getMove(enemy, aiChoice);
         if (aiMove != nullptr) {
@@ -67,13 +61,11 @@ int main() {
             cout << player.name << " took " << aiDmg << " damage!" << endl;
         }
 
-        // Check if Player fainted
         if (player.hp <= 0) {
             cout << player.name << " fainted!" << endl;
         }
     }
 
-    // 3. RESULTS
     if (player.hp > 0) {
         cout << "\nChampion Cynthia: 'You have a truly wonderful battle style.'" << endl;
         cout << "VICTORY!" << endl;
@@ -85,3 +77,4 @@ int main() {
     cleanUpMemory(enemy);
     return 0;
 }
+
