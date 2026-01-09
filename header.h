@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// The Node for the Linked List (Represents 1 Move)
 struct MoveNode {
     string name;
     int minDmg;
@@ -15,7 +14,6 @@ struct MoveNode {
     MoveNode* next;
 };
 
-// The Structure for the Pokemon
 struct Pokemon {
     string name;
     int hp;
@@ -23,7 +21,6 @@ struct Pokemon {
     MoveNode* movesHead;
 };
 
-// Function Declarations
 void setupPokemon(Pokemon& p, string name, int hp);
 void addMove(Pokemon& p, string name, int min, int max, float critM);
 MoveNode* getMove(Pokemon& p, int index);
@@ -32,3 +29,4 @@ void printBattleStatus(Pokemon& p1, Pokemon& p2);
 void cleanUpMemory(Pokemon& p);
 
 #endif
+
