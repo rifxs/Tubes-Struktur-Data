@@ -40,8 +40,6 @@ MoveNode* getMove(Pokemon& p, int index) {
 
 int calculateDamage(MoveNode* move) {
     int dmg = rand() % (move->maxDmg - move->minDmg + 1) + move->minDmg;
-
-    // Gen 2+ Fixed 1/16 Crit chance
     if ((rand() % 16) == 0) {
         dmg = static_cast<int>(dmg * move->critMult);
         cout << ">>> CRITICAL HIT! <<<" << endl;
@@ -50,7 +48,6 @@ int calculateDamage(MoveNode* move) {
 }
 
 void printBattleStatus(Pokemon& p1, Pokemon& p2) {
-    // Handling negative HP display without using the "?" symbol
     int p1_display_hp = p1.hp;
     int p2_display_hp = p2.hp;
 
@@ -72,3 +69,4 @@ void cleanUpMemory(Pokemon& p) {
     }
     p.movesHead = nullptr;
 }
+
