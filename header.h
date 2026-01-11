@@ -26,7 +26,7 @@ void addMove(Pokemon& p, string name, int min, int max, float critM);
 MoveNode* getMove(Pokemon& p, int index);
 int calculateDamage(MoveNode* move);
 void printBattleStatus(Pokemon& p1, Pokemon& p2);
-void cleanUpMemory(Pokemon& p);
 
 #endif
+
 
