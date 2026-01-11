@@ -60,13 +60,4 @@ void printBattleStatus(Pokemon& p1, Pokemon& p2) {
     cout << "----------------------------------------" << endl;
 }
 
-void cleanUpMemory(Pokemon& p) {
-    MoveNode* current = p.movesHead;
-    while (current != nullptr) {
-        MoveNode* nextNode = current->next;
-        delete current;
-        current = nextNode;
-    }
-    p.movesHead = nullptr;
-}
 
