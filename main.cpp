@@ -73,8 +73,7 @@ int main() {
         cout << "\nDEFEAT... You scurried back to a Pokemon Center." << endl;
     }
 
-    cleanUpMemory(player);
-    cleanUpMemory(enemy);
     return 0;
 }
+
 
